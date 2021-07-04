@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Головна сторінка</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Використовуємо іконку для відображення в браузері-->
+    <link rel="shortcut icon" href="images/ico/favicon0.ico">
+</head>
+<body>
+    <!-- Меню -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="images/logo1.png" width="30" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Головна</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contacts.html">Контакти</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users.html">Користувачі</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav px-3">
+                    <li class="nav-item text-nowrap">
+                        <a class="nav-link text-warning" href="/registry.html">Реєстрація</a>
+                    </li>
+                    <li class="nav-item text-nowrap">
+                        <a class="nav-link text-warning" href="/login.html">Вхід</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Карусель зображень -->
+    <div class="container margin-top-carousel">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/images/carusel/11.jpg" class="d-block w-100" alt="Галактика Андромеди">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Галактика Андромеди</h5>
+                        <p> NGC 224 — найближча до Чумацького Шляху велика галактика</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/carusel/22.jpg" class="d-block w-100" alt="Квазар">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Квазар</h5>
+                        <p>Позагалактичний об'єкт з потужним радіовипромінюванням</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/carusel/33.jpg" class="d-block w-100" alt="Сонячне затемнення">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Місячне затемнення</h5>
+                        <p>Найбижче затемнення відбудеться 19 листопада 2021 року</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/carusel/44.jpg" class="d-block w-100" alt="Сатурн">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Сатурн</h5>
+                        <p>Ширина кілець Сатурна складає 70 тисяч км</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+    <br />
+
+
+    <div class="container">
+        <div class="row">
+            <!-- Основне поле -->
+            <div class="col-md-8 col-lg-9">
+                <!-- Новини -->
+                <h1>Новини</h1>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                            <img class="card-img-right flex-auto d-none d-md-block"
+                                 data-src="holder.js/200x250?theme=thumb" alt="Марсохід [200x250]"
+                                 style="width: 200px; height: 250px;"
+                                 src="/images/news/mars.jpg" data-holder-rendered="true">
+                            <div class="card-body d-flex flex-column align-items-start">
+                                <strong class="d-inline-block mb-2 text-primary">Сонячна система</strong>
+                                <h3 class="mb-0">Перше селфі з Марса</h3>
+                                <div class="mb-1 text-muted">11 червня 2021</div>
+                                <p class="card-text mb-auto">
+                                    Китайський космічний апарат "Чжучжун" відправив на Землю серію нових знімків з Марса, з-поміж них і "селфі".
+                                    Робот, який приземлився на Червону планету у травні, закріпив бездротову камеру на землі,
+                                    а потім від'їхав назад, щоб зробити знімок.
+                                </p>
+                                <a href="#">Читати більше</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                            <img class="card-img-right flex-auto d-none d-md-block"
+                                 data-src="holder.js/200x250?theme=thumb" alt="Ракета [200x250]"
+                                 style="width: 200px; height: 250px;"
+                                 src="/images/news/rocket.jpg" data-holder-rendered="true">
+                            <div class="card-body d-flex flex-column align-items-start">
+                                <strong class="d-inline-block mb-2 text-primary">Місяць</strong>
+                                <h3 class="mb-0">Суперракета на Місяць</h3>
+                                <div class="mb-1 text-muted">13 червня 2021</div>
+                                <p class="card-text mb-auto">
+                                    Інженери Космічного центру Кеннеді у Флориді спустили 65-метровий основний щабель
+                                    ракети Space Launch System між двома прискорювачами,
+                                    вперше з'єднавши всі три основні елементи суперракети.
+                                    Запустити цю ракету в перший політ НАСА планує цього року.
+                                </p>
+                                <a href="#">Читати більше</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                            <img class="card-img-right flex-auto d-none d-md-block"
+                                 data-src="holder.js/200x250?theme=thumb" alt="Протопланетний диск [200x250]"
+                                 style="width: 200px; height: 250px;"
+                                 src="/images/news/protoplanet.jpg" data-holder-rendered="true">
+                            <div class="card-body d-flex flex-column align-items-start">
+                                <strong class="d-inline-block mb-2 text-primary">Метеорити</strong>
+                                <h3 class="mb-0">Шлях метеорита</h3>
+                                <div class="mb-1 text-muted">22 червня 2021</div>
+                                <p class="card-text mb-auto">
+                                    Вчені відстежили шлях частинки метеорита, тривалістю 4,5 мільярда років.
+                                    Вчені Університету Аризони взяли матеріал з метеорита Альєнде,
+                                    який впав у Мексиці у 1969 році. Деякі його частинки, багаті на кальцій
+                                    та алюміній, сформувалися 4,5 мільярда років тому.
+                                </p>
+                                <a href="#">Читати більше</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Категорії -->
+            <div class="d-none d-md-block col-md-4 col-lg-3">
+                <h1>Категорії</h1>
+                <div class="p-3 mb-3 bg-light rounded">
+                    <h5 class="font-italic"><a href="#">Сонячна система</a></h5>
+                    <h5 class="font-italic"><a href="#">Місяць</a></h5>
+                    <h5 class="font-italic"><a href="#">Метеорити</a></h5>
+                    <h5 class="font-italic"><a href="#">Чумацький шлях</a></h5>
+                    <h5 class="font-italic"><a href="#">Квазари</a></h5>
+                    <h5 class="font-italic"><a href="#">Метагалактика</a></h5>
+                </div>
+
+                <h1>Архів новин</h1>
+                <ol class="list-unstyled mb-0">
+                    <li><a href="#">Червень 2021</a></li>
+                    <li><a href="#">Травень 2021</a></li>
+                    <li><a href="#">Квітень 2021</a></li>
+                    <li><a href="#">Березень 2021</a></li>
+                    <li><a href="#">Лютий 2021</a></li>
+                    <li><a href="#">Січень 2021</a></li>
+                    <li><a href="#">Грудень 2020</a></li>
+                    <li><a href="#">Листопад 2020</a></li>
+                    <li><a href="#">Жовтень 2020</a></li>
+                    <li><a href="#">Вересень 2020</a></li>
+                    <li><a href="#">Серпень 2020</a></li>
+                    <li><a href="#">Липень 2020</a></li>
+                </ol>
+            </div>
+
+            <!-- Пагінація -->
+            <nav aria-label="...">
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                        <span class="page-link">Попередня</span>
+                    </li>
+                    <li class="page-item active">
+                        <span class="page-link">
+                            1
+                            <span class="sr-only">(current)</span>
+                        </span>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Наступна</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <script src="/js/jquery-3.5.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
