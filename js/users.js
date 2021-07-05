@@ -14,6 +14,7 @@
     var imgPhoto = document.getElementById("imgPhoto");
     var selectImageBase64 = document.getElementById("selectImageBase64");
 
+
     fileImage.onchange = function (e) {
         let files;
         if (e.dataTransfer) {
@@ -68,14 +69,17 @@
             var phone = txtPhone.value;
             var email = txtEmail.value;
             var photo = document.createElement('img');
-            photo.style.height = '100px';
+            photo.style.height = '70px';
+            photo.style.padding = '3px';
+            photo.style.border = '1px solid white';
+            photo.style.margin = '0px auto 0px auto';
+            photo.style.display = '0px auto 0px auto';
             photo.src = imgPhoto.src;
             var tr = document.createElement("tr");
-            tr.style.alignContent = 'center';
+            
             tr.innerHTML = `<th scope="row">${number++}</th>
-                            
-                            <td>${lastName}</td>
                             <td>${name}</td>
+                            <td>${lastName}</td>
                             <td>${phone}</td>
                             <td>${email}</td>
                             <td>
@@ -92,18 +96,7 @@
         }
 
 
-        // 73 ---  <td>${imgPhoto}</td>
-
-        //$(tr).find('#removeit').click(function (e) {
-        //    e.preventDefault();
-        //    var item = $(this).closest('tr');
-        //    $("#confirmModal").modal("show");
-
-        //    $('#btnConfirm').click(function () {
-        //        $(item).remove();
-        //        $("#confirmModal").modal("hide");
-        //    });
-        //});
+        
     };
 
     function isValidTextInput(e) {
