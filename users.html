@@ -56,8 +56,8 @@
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Ім'я</th>
                             <th scope="col">Прізвище</th>
+                            <th scope="col">Ім'я</th>
                             <th scope="col">Телефон</th>
                             <th scope="col">E-mail</th>
                             <th scope="col">Дія</th>
@@ -84,45 +84,69 @@
                     <form class="was-validated">
                         <div class="form-group">
                             <label for="txtLastName">Прізвище</label>
-                            <input type="text" class="form-control" id="txtLastName" placeholder="Ваше прізвище">
+                            <input type="text" class="form-control" id="txtLastName" placeholder="Введіть прізвище">
                             <div class="invalid-feedback">Правильно заповніть поле "Прізвище"</div>
                         </div>
                         <div class="form-group">
                             <label for="txtName">Ім'я</label>
-                            <input type="text" class="form-control" id="txtName" placeholder="Ваше ім'я">
+                            <input type="text" class="form-control" id="txtName" placeholder="Введіть ім'я">
                             <div class="invalid-feedback">Правильно заповніть поле "Ім'я"</div>
                         </div>
                         <div class="form-group">
                             <label for="txtPhone">Телефон</label>
-                            <input type="text" class="form-control" id="txtPhone" placeholder="Ваш телефон">
+                            <input type="text" class="form-control" id="txtPhone" placeholder="Введіть телефон">
                             <div class="invalid-feedback">Правильно заповніть поле "Номер телефону" в форматі +ХХ(ХХХ) ХХХ ХХ ХХ</div>
                         </div>
-
                         <div class="form-group">
                             <label for="txtEmail">Електронна пошта</label>
-                            <input type="text" class="form-control" id="txtEmail" placeholder="Ваш e-mail">
+                            <input type="text" class="form-control" id="txtEmail" placeholder="Введіть e-mail">
                             <div class="invalid-feedback">Правильно заповніть поле "Електронна пошта"</div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img src="images/no-image.jpg" width="100%" id="imgPhoto"/>
-                            </div>
-                            <input type="hidden"  id="selectImageBase64" />
-                            <div class="col-md-9">
-                                <div class="custom-file">
-                                    <input type="file"
-                                           class="custom-file-input"
-                                           id="fileImage"
-                                           accept=".jpg, .jpeg, .png"/>
-                                    <label class="custom-file-label" for="fileImage">Оберіть фото...</label>
-                                    <div class="invalid-feedback"> Потрібно обрати фото</div>
+                        
+                    </form>
+						
+                    <div class="row">
+                        <div class="col-md-3">
+                            <br /><br />
+                            <img src="images/no-image.jpg" width="100%" id="imgPhoto" />
+                        </div>
+                        <!--<input type="hidden" id="selectImageBase64" />-->
+
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="hidden" id="selectImageBase64" />
+                                    <form method="post" action="#" id="#" align="left">
+                                        <div class="form-group files">
+                                            <label>Завантажте свій файл </label>
+                                            <input type="file"
+                                                   class="form-control"
+                                                   multiple=""
+                                                   align="left"
+                                                   id="fileImage"
+                                                   accept=".jpg, .jpeg, .png" />
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
 
-                    </form>
+                        <!--<div class="col-md-9">
+                             <div class="custom-file">
+                                <input type="file"
+                                        class="custom-file-input"
+                                         id="fileImage"
+                                        accept=".jpg, .jpeg, .png"/>
+                                <label class="custom-file-label" for="fileImage">Оберіть фото...</label>
+                            <div class="invalid-feedback"> Потрібно обрати фото</div>
+                        </div>
+                </div>-->
+                    </div> 
+
+                    
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" id="btnAddUserSave">Зберегти</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Скасувати</button>

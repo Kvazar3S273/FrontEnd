@@ -53,6 +53,7 @@
 
 
     btnAddNewUser.onclick = function (e) {
+        imgPhoto.src = "images/no-image.jpg";
         $("#myModal").modal("show");
     };
 
@@ -74,12 +75,11 @@
             photo.style.border = '1px solid white';
             photo.style.margin = '0px auto 0px auto';
             photo.style.display = '0px auto 0px auto';
-            photo.src = imgPhoto.src;
+            photo.src = selectImageBase64.value;//imgPhoto.src;
             var tr = document.createElement("tr");
-            
             tr.innerHTML = `<th scope="row">${number++}</th>
-                            <td>${name}</td>
                             <td>${lastName}</td>
+                            <td>${name}</td>
                             <td>${phone}</td>
                             <td>${email}</td>
                             <td>
