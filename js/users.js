@@ -84,7 +84,8 @@
                             <td>${email}</td>
                             <td>
                                 <i class="fa fa-pencil text-info cursor-pointer" 
-                                    aria-hidden="true"></i>
+                                    aria-hidden="true"
+                                    onclick="EditRow(this)"></i>
                                 <i class="fa fa-times text-danger cursor-pointer" 
                                     aria-hidden="true" 
                                     onclick="DeleteRow(this)"></i>
@@ -190,7 +191,7 @@ function DeleteRow(e) {
     });
 }
 
-function ChangeRow(tr) {
+function EditRow(tr) {
     var mainForm = document.getElementById('mainForm');
     var txtName = document.getElementById("txtName");
     var txtPhone = document.getElementById("txtPhone");
@@ -202,7 +203,7 @@ function ChangeRow(tr) {
         tr.cells.item(2).innerHTML = txtLastname.value;
         tr.cells.item(3).innerHTML = txtPhone.value;
         tr.cells.item(4).innerHTML = txtMail.value;
-        $('#registerModal').modal('hide');
+        $('#editModal').modal('hide');
         txtName.value = txtPhone.value = txtLastname.value = txtMail.value = "";
     }
 }
