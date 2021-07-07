@@ -95,9 +95,6 @@
             $("#myModal").modal("hide");
             tbodyUsers.appendChild(tr);
         }
-
-
-        
     };
 
     function isValidTextInput(e) {
@@ -191,19 +188,70 @@ function DeleteRow(e) {
     });
 }
 
-function EditRow(tr) {
-    var mainForm = document.getElementById('mainForm');
-    var txtName = document.getElementById("txtName");
-    var txtPhone = document.getElementById("txtPhone");
-    var txtLastname = document.getElementById("txtLastname");
-    var txtMail = document.getElementById("txtMail");
+function EditRow(e) {
+    //e.preventDefault();
+    $("#editModal").modal("show");
+    var tr = e.parentElement.parentElement;
+    //var tr = $(this).closest("tr");
+    //console.log(tr);
 
-    if (mainForm.checkValidity() === true) {
-        tr.cells.item(1).innerHTML = txtName.value;
-        tr.cells.item(2).innerHTML = txtLastname.value;
-        tr.cells.item(3).innerHTML = txtPhone.value;
-        tr.cells.item(4).innerHTML = txtMail.value;
-        $('#editModal').modal('hide');
-        txtName.value = txtPhone.value = txtLastname.value = txtMail.value = "";
-    }
+    var valueLastName = tr.cell[3].innerHTML;
+    var valueName = tr.cell[1].innerHTML;
+    var valuePhone = tr.cell[2].innerHTML;
+    var valueMail = tr.cell[4].innerHTML;
+
+    document.getElementsByClassName('txtLastname')[0].value = valueLastName;
+    document.getElementsByClassName('txtName')[0].value = valueName;
+    document.getElementsByClassName('txtPhone')[0].value = valuePhone;
+    document.getElementsByClassName('txtEmail')[0].value = valueMail;
+
+    alert(valueName);
+
+    //tr.cells.item(1).innerHTML = txtName.value;
+    //tr.cells.item(2).innerHTML = txtLastname.value;
+    //tr.cells.item(3).innerHTML = txtPhone.value;
+    //tr.cells.item(4).innerHTML = txtEmail.value;
+
+
+    //var txtEditLastName = tr.cell[1].innerHTML;
+    //var txtEditName = tr.cell[2].innerHTML;
+    //var txtEditPhone = tr.cell[3].innerHTML;
+    //var txtEditEmail = tr.cell[4].innerHTML;
+    //var txtEditImage = tr.cell[1].innerHTML;
+
+    //console.log(tr);
+
+
+    //var valueLastName = tr.cell[1].innerHTML;
+    //var valueName = tr.cell[2].innerHTML;
+    //var valuePhone = tr.cell[3].innerHTML;
+    //var valueEmail = tr.cell[4].innerHTML;
+    //document.getElementById("txtLastName")[0].value = valueLastName;
+    //document.getElementById("txtName")[0].value = valueName;
+    //document.getElementById("txtPhone")[0].value = valuePhone;
+    //document.getElementById("txtEmail")[0].value = valueEmail;
+
+    //var a = tbodyUsers.getElementsByClassName(e.parentElement.parentElement);
+    //alert(a);
+    
 }
+
+
+
+
+//function EditRow1(tr) {
+//    var mainForm = document.getElementById('mainForm');
+//    var txtName = document.getElementById("txtName");
+//    var txtPhone = document.getElementById("txtPhone");
+//    var txtLastname = document.getElementById("txtLastname");
+//    var txtMail = document.getElementById("txtMail");
+
+//    if (mainForm.checkValidity() === true) {
+//        tr.cells.item(1).innerHTML = txtName.value;
+//        tr.cells.item(2).innerHTML = txtLastname.value;
+//        tr.cells.item(3).innerHTML = txtPhone.value;
+//        tr.cells.item(4).innerHTML = txtMail.value;
+//        $('#editModal').modal('hide');
+//        txtName.value = txtPhone.value = txtLastname.value = txtMail.value = "";
+//    }
+//}
