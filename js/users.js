@@ -182,114 +182,48 @@
 }
 
 function EditRow(e) {
-    alert(1000);
-    //var tr = e.parentElement.parentElement;
-
-    // Витягуємо дані із рядка таблиці що редагується
-    //var valueNumber = $(tr).find('th td').get(0).innerHTML;
-
-    $('#mytable tr').each(function () {
-        var valueLastName = $(this).find("td").eq(1).html();
-        var valueName = $(this).find('td').eq(2).html();
-        var valuePhone = $(this).find('td').eq(3).html();
-        var valueMail = $(this).find('td').eq(4).html();
-        var photo = $(this).find('img').eq(0).src;
-
-        txtLastName.value = valueLastName;
-        alert(txtLastName.value);
-        //alert(2000);
-        txtName.value = valueName;
-        txtPhone.value = valuePhone;
-        txtEmail.value = valueMail;
-        imgPhoto.src = photo;
-    });
-
-    
-
-    // Заповнюємо поля модального вікна
-    //hNumber.value = valueNumber;
-    
-
+    //alert(1000);
     $("#editModal").modal("show");
+    var tr = e.parentElement.parentElement;
 
-    //btnEditUserSave.onclick = function (e) {
-    //    if (isValidation()) {
-    //        var lastName = txtLastName.value;
-    //        var name = txtName.value;
-    //        var phone = txtPhone.value;
-    //        var email = txtEmail.value;
-    //        var photo = document.createElement('img');
-    //        photo.style.height = '70px';
-    //        photo.style.padding = '3px';
-    //        photo.style.border = '1px solid white';
-    //        photo.style.margin = '0px auto 0px auto';
-    //        photo.style.display = '0px auto 0px auto';
-    //        photo.src = selectImageBase64.value;//imgPhoto.src;
-    //        var tr = document.createElement("tr");
-    //        tr.innerHTML = `<th scope="row">${number++}</th>
-    //                        <td>${lastName}</td>
-    //                        <td>${name}</td>
-    //                        <td>${phone}</td>
-    //                        <td>${email}</td>
-    //                        <td>
-    //                            <i class="fa fa-pencil text-info cursor-pointer" 
-    //                                aria-hidden="true"
-    //                                onclick="EditRow(this)"></i>
-    //                            <i class="fa fa-times text-danger cursor-pointer" 
-    //                                aria-hidden="true" 
-    //                                onclick="DeleteRow(this)"></i>
-    //                        </td>`;
-    //        tr.appendChild(photo);
-    //        txtLastName.value = txtName.value = txtPhone.value = txtEmail.value = "";
-    //        $("#editModal").modal("hide");
-    //        tbodyUsers.appendChild(tr);
-    //    }
-    //};
 
-    //function isValidation() {
-    //    var isValid = true;
-    //    if (txtLastName.value == "") {
-    //        showError(txtLastName);
-    //        isValid = false;
-    //    }
-    //    else {
-    //        showSuccess(txtLastName);
-    //    }
+    var valueLastName = $(tr).find('td').get(0).innerHTML;
+    var valueName = $(tr).find('td').get(1).innerHTML;
+    var valuePhone = $(tr).find('td').get(2).innerHTML;
+    var valueMail = $(tr).find('td').get(3).innerHTML;
+    var photo = $(tr).find('img').get(0).src;
 
-    //    if (txtName.value == "") {
-    //        showError(txtName);
-    //        isValid = false;
-    //    }
-    //    else {
-    //        showSuccess(txtName);
-    //    }
+        //alert(2000);
+    // Заповнюємо поля модального вікна
 
-    //    if (!regex_email.test(txtEmail.value)) {
-    //        showError(txtEmail);
-    //        isValid = false;
-    //    }
-    //    else {
-    //        showSuccess(txtEmail);
-    //    }
+    txtLastName.value = valueLastName;
+    txtName.value = valueName;
+    txtPhone.value = valuePhone;
+    txtEmail.value = valueMail;
+    imgPhoto.src = photo;
 
-    //    if (!regex_phone.test(txtPhone.value)) {
-    //        showError(txtPhone);
-    //        isValid = false;
-    //    }
-    //    else {
-    //        showSuccess(txtPhone);
-    //    }
+    //const inputLastName = document.querySelector('input[id="txtLastName"]');
+    //const inputName = document.querySelector('input[id="txtName"]');
+    //const inputPhone = document.querySelector('input[id="txtPhone"]');
+    //const inputEmail = document.querySelector('input[id="txtEmail"]');
+    //const imgTypePhoto = document.querySelector('img[id="imgPhoto"]');
+    //inputLastName.value = txtLastName;
+    //inputName.value = txtName;
+    //inputPhone.value = txtPhone;
+    //inputEmail.value = txtEmail;
+    //imgTypePhoto.src = imgPhoto;
 
-    //    if (selectImageBase64.value == "") {
-    //        showError(fileImage);
-    //        isValid = false;
-    //    }
-    //    else {
-    //        showSuccess(fileImage);
-    //    }
+    console.log(txtLastName.value);
+    console.log(txtName.value);
+    console.log(txtPhone.value);
+    console.log(txtEmail.value);
 
-    //    return isValid;
-    //}
+
+    //$('#txtLastName').val(valueLastName);
+    
+
+    
+
 }
 
 
