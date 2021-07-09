@@ -52,7 +52,7 @@
 
                 <button class="btn btn-success" id="btnAddNewUser">Додати нового користувача</button>
 
-                <table class="table mt-3" id="mytable">
+                <table class="table mt-3">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">#</th>
@@ -74,18 +74,16 @@
 
     <!-- Модальне вікно додавання нового користувача -->
     <div class="modal" id="myModal" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">
-	<input type="hidden" id="hNumber" />
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Дані про користувача</h5>
+                    <h5 class="modal-title">Введіть дані нового користувача</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <form class="was-validated">
-					
                         <div class="form-group">
                             <label for="txtLastName">Прізвище</label>
                             <input type="text" class="form-control" id="txtLastName" placeholder="Введіть прізвище">
@@ -237,7 +235,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="btnEditUserSave">Зберегти</button>
+                    <button type="button" class="btn btn-primary" id="btnAddUserSave">Зберегти</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Скасувати</button>
                 </div>
             </div>

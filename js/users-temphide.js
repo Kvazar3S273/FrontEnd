@@ -1,8 +1,11 @@
-﻿window.onload = function () {
+	var hNumber = document.getElementById("hNumber");
+window.onload = function () {
+	
     const regex_phone = /^(?=\+?([0-9]{2})\(?([0-9]{3})\)\s?([0-9]{3})\s?([0-9]{2})\s?([0-9]{2})).{18}$/;
     const regex_email = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 
-    var number = 1;
+    var number = 0;
+
     var txtLastName = document.getElementById("txtLastName");
     var txtName = document.getElementById("txtName");
     var txtPhone = document.getElementById("txtPhone");
@@ -53,7 +56,10 @@
 
 
     btnAddNewUser.onclick = function (e) {
+		 // Очищаємо поля форми перед показом модального вікна, бо ми створюємо новий запис, так само очищаємо поле hNumber
+        hNumber.value = txtLastName.value = txtName.value = txtPhone.value = txtEmail.value = "";
         imgPhoto.src = "images/no-image.jpg";
+        //alert(0)
         $("#myModal").modal("show");
     };
 
@@ -65,6 +71,7 @@
 
     btnAddUserSave.onclick = function (e) {
         if (isValidation()) {
+			var rowNumber = hNumber.value;
             var lastName = txtLastName.value;
             var name = txtName.value;
             var phone = txtPhone.value;
@@ -76,8 +83,31 @@
             photo.style.margin = '0px auto 0px auto';
             photo.style.display = '0px auto 0px auto';
             photo.src = selectImageBase64.value;//imgPhoto.src;
-            var tr = document.createElement("tr");
-            tr.innerHTML = `<th scope="row">${number++}</th>
+			// оголошуємо змінну для рядка:
+            // - при створенні нового запису ми будемо додавати новий рядок
+            // - при редагуванні існуючого запису - ми будемо замінювати уже існуючимй рядок
+            var tr = null;
+			
+			 if (!rowNumber) { // якщо номер запису пустий - створюємо новий рядок, генеруємо для нього номер, додаємо рядок до таблиці
+			 alert(1);
+                rowNumber = number++;
+			    tr = document.createElement("tr");
+				tr.number = rowNumber;          // заповнюємо для рядка атрибут number, щоб потім його можна було знайти по номеру
+				tbodyUsers.appendChild(tr);
+			 }
+             else { // якщо номер заповнений - редагування існуючого запису, шукаємо рядок із вказаним номером
+                 alert(2);
+
+                 tr = $(tbodyUsers).find(`tr[number=${rowNumber}]`).get(0);
+
+                 EditRow(tr);
+
+
+                 $("#myModal").modal("hide");
+
+             }
+				
+				tr.innerHTML = `<th scope="row">${number}</th>
                             <td>${lastName}</td>
                             <td>${name}</td>
                             <td>${phone}</td>
@@ -85,17 +115,47 @@
                             <td>
                                 <i class="fa fa-pencil text-info cursor-pointer" 
                                     aria-hidden="true"
-                                    onclick="EditRow(this)"></i>
+                                    onclick="btnAddNewUser"></i>
                                 <i class="fa fa-times text-danger cursor-pointer" 
                                     aria-hidden="true" 
                                     onclick="DeleteRow(this)"></i>
                             </td>`;
             tr.appendChild(photo);
-            txtLastName.value = txtName.value = txtPhone.value = txtEmail.value = "";
+            //txtLastName.value = txtName.value = txtPhone.value = txtEmail.value = "";
             $("#myModal").modal("hide");
-            tbodyUsers.appendChild(tr);
+                
+				 
+            
+			           
         }
     };
+
+    function isValidTextInput(e) {
+        if (e.target.value == "") {
+            showError(e.target);
+        }
+        else {
+            showSuccess(e.target);
+        }
+    }
+
+    function isValidEmailInput(e) {
+        if (!regex_email.test(e.target.value)) {
+            showError(e.target);
+        }
+        else {
+            showSuccess(e.target);
+        }
+    }
+
+    function isValidPhoneInput(e) {
+        if (!regex_phone.test(e.target.value)) {
+            showError(e.target);
+        }
+        else {
+            showSuccess(e.target);
+        }
+    }
 
     function isValidation() {
         var isValid = true;
@@ -142,35 +202,6 @@
         return isValid;
     }
 
-    function isValidTextInput(e) {
-        if (e.target.value == "") {
-            showError(e.target);
-        }
-        else {
-            showSuccess(e.target);
-        }
-    }
-
-    function isValidEmailInput(e) {
-        if (!regex_email.test(e.target.value)) {
-            showError(e.target);
-        }
-        else {
-            showSuccess(e.target);
-        }
-    }
-
-    function isValidPhoneInput(e) {
-        if (!regex_phone.test(e.target.value)) {
-            showError(e.target);
-        }
-        else {
-            showSuccess(e.target);
-        }
-    }
-
-    
-
     function showError(input) {
         input.classList.add("is-invalid");
         input.classList.remove("is-valid");
@@ -181,118 +212,6 @@
     }
 }
 
-function EditRow(e) {
-    alert(1000);
-    //var tr = e.parentElement.parentElement;
-
-    // Витягуємо дані із рядка таблиці що редагується
-    //var valueNumber = $(tr).find('th td').get(0).innerHTML;
-
-    $('#mytable tr').each(function () {
-        var valueLastName = $(this).find("td").eq(1).html();
-        var valueName = $(this).find('td').eq(2).html();
-        var valuePhone = $(this).find('td').eq(3).html();
-        var valueMail = $(this).find('td').eq(4).html();
-        var photo = $(this).find('img').eq(0).src;
-
-        txtLastName.value = valueLastName;
-        alert(txtLastName.value);
-        //alert(2000);
-        txtName.value = valueName;
-        txtPhone.value = valuePhone;
-        txtEmail.value = valueMail;
-        imgPhoto.src = photo;
-    });
-
-    
-
-    // Заповнюємо поля модального вікна
-    //hNumber.value = valueNumber;
-    
-
-    $("#editModal").modal("show");
-
-    //btnEditUserSave.onclick = function (e) {
-    //    if (isValidation()) {
-    //        var lastName = txtLastName.value;
-    //        var name = txtName.value;
-    //        var phone = txtPhone.value;
-    //        var email = txtEmail.value;
-    //        var photo = document.createElement('img');
-    //        photo.style.height = '70px';
-    //        photo.style.padding = '3px';
-    //        photo.style.border = '1px solid white';
-    //        photo.style.margin = '0px auto 0px auto';
-    //        photo.style.display = '0px auto 0px auto';
-    //        photo.src = selectImageBase64.value;//imgPhoto.src;
-    //        var tr = document.createElement("tr");
-    //        tr.innerHTML = `<th scope="row">${number++}</th>
-    //                        <td>${lastName}</td>
-    //                        <td>${name}</td>
-    //                        <td>${phone}</td>
-    //                        <td>${email}</td>
-    //                        <td>
-    //                            <i class="fa fa-pencil text-info cursor-pointer" 
-    //                                aria-hidden="true"
-    //                                onclick="EditRow(this)"></i>
-    //                            <i class="fa fa-times text-danger cursor-pointer" 
-    //                                aria-hidden="true" 
-    //                                onclick="DeleteRow(this)"></i>
-    //                        </td>`;
-    //        tr.appendChild(photo);
-    //        txtLastName.value = txtName.value = txtPhone.value = txtEmail.value = "";
-    //        $("#editModal").modal("hide");
-    //        tbodyUsers.appendChild(tr);
-    //    }
-    //};
-
-    //function isValidation() {
-    //    var isValid = true;
-    //    if (txtLastName.value == "") {
-    //        showError(txtLastName);
-    //        isValid = false;
-    //    }
-    //    else {
-    //        showSuccess(txtLastName);
-    //    }
-
-    //    if (txtName.value == "") {
-    //        showError(txtName);
-    //        isValid = false;
-    //    }
-    //    else {
-    //        showSuccess(txtName);
-    //    }
-
-    //    if (!regex_email.test(txtEmail.value)) {
-    //        showError(txtEmail);
-    //        isValid = false;
-    //    }
-    //    else {
-    //        showSuccess(txtEmail);
-    //    }
-
-    //    if (!regex_phone.test(txtPhone.value)) {
-    //        showError(txtPhone);
-    //        isValid = false;
-    //    }
-    //    else {
-    //        showSuccess(txtPhone);
-    //    }
-
-    //    if (selectImageBase64.value == "") {
-    //        showError(fileImage);
-    //        isValid = false;
-    //    }
-    //    else {
-    //        showSuccess(fileImage);
-    //    }
-
-    //    return isValid;
-    //}
-}
-
-
 function DeleteRow(e) {
     var tbodyUsers = document.getElementById('tbodyUsers');
     bootbox.confirm("Ви точно хочете видалити об'єкт?", function (result) {
@@ -302,3 +221,28 @@ function DeleteRow(e) {
     });
 }
 
+function EditRow(e) {
+    //alert(1000);
+    $("#myModal").modal("show");
+    var tr = e.parentElement.parentElement;
+
+    // Витягуємо дані із рядка таблиці що редагується
+    var valueNumber = $(tr).find('th td').get(0).innerHTML;
+
+    var valueLastName = $(tr).find('th td').get(1).innerHTML;
+
+    var valueName = $(tr).find('th td').get(2).innerHTML;
+    var valuePhone = $(tr).find('th td').get(3).innerHTML;
+    var valueMail = $(tr).find('th td').get(4).innerHTML;
+    var photo = $(tr).find('img').get(0).src;
+
+    // Заповнюємо поля модального вікна
+    hNumber.value = valueNumber;
+    txtLastName.value = valueLastName;
+    txtName.value = valueName;
+    txtPhone.value = valuePhone;
+    txtEmail.value = valueMail;
+    imgPhoto.src = photo;
+
+
+}
