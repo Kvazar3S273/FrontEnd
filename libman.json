@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "cropperjs@1.5.12",
+      "destination": "lib/cropperjs/",
+      "files": [
+        "cropper.min.js",
+        "cropper.min.css"
+      ]
+    }
+  ]
+}
