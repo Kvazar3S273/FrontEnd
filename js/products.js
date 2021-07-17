@@ -1,13 +1,21 @@
 ﻿$(function () {
     // Змінна, яка відповідає за виклик модального вікна додавання продуктів
     var $myModal = $("#myModal"); //модалка
+
+    // Поля інпутів
     var $txtName = $("#txtName");
     var $txtDescription = $("#txtDescription");
     var $txtPrice = $("#txtPrice");
-    var $productsBlock = $("#productsBlock");
     var $imgPhotoBlock = $("#imgPhotoBlock");
+
+    // Блок продуктів
+    var $productsBlock = $("#productsBlock");
     var uploader;
+
+    // Змінна кропера для обрізаної фотографії
     var cropper = null;
+
+    // Модальне вікно кропера
     var $cropperModal = $("#cropperModal");
 
     // Кнопка "Додати продукт"
@@ -19,8 +27,11 @@
     $imgPhotoBlock.on("click", function () {
         if (uploader)
             uploader.remove();
+        // Отримуємо файл зображення
         uploader = $(`<input type="file" class="d-none" accept=".jpg, .jpeg, .png" />`);
+        // Опрацьовуємо клік
         uploader.click();
+        // Зберігаємо фото 
         uploader.on("change", function (e) {
             SaveImage(uploader[0]);
         });
@@ -29,7 +40,7 @@
 
     // Кнопка збереження нового продукта
     $("#btnAddProductSave").on("click", function () {
-
+        // При натисканні кнопки "Зберегти продукт" - додаємо в блок продуктів зверху новий продукт
         $productsBlock.prepend(`
             <div class="row p-2 bg-white border rounded mt-2">
                     <div class="col-md-3 mt-1">
@@ -64,19 +75,21 @@
                     </div>
                 </div>
         `);
+        // Закриваємо модальне вікно додавання продукту
         closeDialog();
-
     });
 
     // Функція закриття модального вікна
     function closeDialog() {
+        // Очищаємо поля інпутів
         $txtName.val("");
         $txtDescription.val("");
         $txtPrice.val("");
+        // Закриваємо модальне вікно
         $myModal.modal("hide");
     }
 
-    //DragAndDrop
+    // Додаємо фотографію методом Drag And Drop
 
     var draganddrop = document.getElementById('draganddrop');
     draganddrop.addEventListener('dragenter', DragIn, false);
@@ -105,7 +118,7 @@
         e.preventDefault();
         e.stopPropagation();
     }
-
+    // Зберігаємо фото
     function SaveImage(e) {
         initCropper();
         var files;
@@ -124,35 +137,34 @@
                     $imgPhotoBlock.attr("src", reader.result);
                     $cropperModal.show();
                     cropper.replace(reader.result);
-                    //showSuccess(fileImage);
                 }
-
                 reader.readAsDataURL(file);
             }
         }
-
-        
     }
 
+    // Обробка кнопки обрізки фотографії
     $("#btnCropImg").on("click", function () {
+        // Отримуємо base64 обрізаної фотографії і вносимо значення в атрибут src 
         $imgPhotoBlock.attr("src", cropper.getCroppedCanvas().toDataURL());
+        // Закриваємо модальне вікно обрізки
         $cropperModal.hide();
     });
 
+    // Обробка кнопки скасування обрізки фотографії
     $("#cropperModal").on("click", "[data-closeCustomDialog]", function () {
         $cropperModal.hide();
     });
 
+    // Ініціалізація функції обрізки (кропера)
     function initCropper() {
         if (cropper == null) {
             const imageCropper = document.getElementById('imageCropper');
             cropper = new Cropper(imageCropper, {
-                aspectRatio: 1 / 1,
+                aspectRatio: 1 / 1, // пропорції обрізки
                 viewMode: 1,
                 autoCropArea: 0.5
             });
         }
     }
-
-
 });

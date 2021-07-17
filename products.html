@@ -53,20 +53,18 @@
         </div>
     </nav>
 
+    <!--Блок продуктів-->
     <div class="container">
-
         <h1 class="text-center">Продукти</h1>
-
         <button class="btn btn-success" id="btnAddProduct">Додати продукт</button>
-
         <div class="d-flex justify-content-center row">
             <div class="col-md-12" id="productsBlock">
-
             </div>
         </div>
 
     </div>
 
+    <!--Модальне вікно додавання продуктів-->
     <div class="modal" id="myModal" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -101,36 +99,12 @@
                                         Важіть ціну.
                                     </div>
                                 </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <!--<div class="row">
-                        <div class="col-md-3">
-                            <img src="images/no-image.jpg" width="100%"
-                                 id="imgPhoto" />
-                        </div>
-                        <input type="hidden" id="selectImageBase64" />
-                        <div class="col-md-9">
-                            <div class="custom-file">
-                                <input type="file"
-                                       class="custom-file-input"
-                                       id="fileImage"
-                                       accept=".jpg, .jpeg, .png">
-                                <label class="custom-file-label" for="fileImage">Оберіть фото...</label>
-                                <div class="invalid-feedback">Потрібно обрати фото</div>
                             </div>
                         </div>
-                    </div>-->
 
                         <div class="form-group" id="draganddrop">
                             <h4 class="text-dark text-center">Фотографія користувача</h4>
                             <input type="hidden" id="inputImgHidden" />
-                            <!--<div class="custom-file d-none">
-                            <input type="file" class="custom-file-input" id="txtPhoto" />
-                            <label for="txtPhoto" class="custom-file-label">Оберіть фотографію</label>
                         </div>-->
                             <div class="text-muted form-text text-center" for="txtPhoto">
                                 <img id="imgPhotoBlock" src="/images/no-image.jpg"
@@ -144,8 +118,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -156,6 +128,7 @@
         </div>
     </div>
 
+    <!--Модальне вікно кропера-->
     <div class="customDialog" id="cropperModal">
         <div class="dialog">
             <main>
@@ -174,8 +147,6 @@
 
     <script src="/js/jquery-3.5.1.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
-    <!--<script src="/js/users.js"></script>
-    <script src="/js/index.js"></script>-->
     <script src="/js/bootbox.all.min.js"></script>
     <script src="/js/imask.js"></script>
     <script src="/js/products.js"></script>
